@@ -61,28 +61,31 @@ exports.login = (req, res) => {
       email: req.body.email,
     },
     (err, user) => {
-      if (err) throw err;
-
-      const formattedUser = {
-        name: user.name,
-        email: user.email,
-        country: user.country,
-        merchantType: user.merchantType,
-        id: user._id,
-      };
+      if (err) {
+        throw err;
+      }
 
       if (!user) {
-        res.json({
+        return res.json({
           success: false,
           message: "User not found",
         });
       }
+
       if (user.password !== req.body.password) {
-        res.json({
+        return res.json({
           success: false,
           message: "Incorrect password",
         });
       } else {
+        const formattedUser = {
+          name: user.name,
+          email: user.email,
+          country: user.country,
+          merchantType: user.merchantType,
+          id: user._id,
+        };
+
         const token = jwt.sign(formattedUser, "self2021", {
           expiresIn: "1440m",
         });
