@@ -22,7 +22,7 @@ exports.createUser = (req, res) => {
       if (err) throw err;
 
       if (user) {
-        res.json({
+        res.status(400).json({
           success: false,
           message: "E-mail already registered",
         });
