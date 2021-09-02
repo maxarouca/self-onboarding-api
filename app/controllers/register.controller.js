@@ -123,8 +123,10 @@ exports.findAllSteps = async (req, res) => {
 exports.findById = (req, res) => {
   const id = req.decoded.id;
 
+  console.log(id);
+
   steps[req.step]
-    .find({ userId: id })
+    .findOne({ userId: id })
     .then((data) => {
       res.send(data);
     })
