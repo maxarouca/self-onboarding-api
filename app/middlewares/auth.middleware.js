@@ -14,7 +14,6 @@ const authMiddlware = (req, res, next) => {
       } else {
         req.decoded = decoded;
         req.step = req.url.split("/")[1];
-        console.log(req.protocol);
         req.serverUrl = req.protocol + "://" + req.get("host");
 
         next();
