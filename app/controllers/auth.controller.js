@@ -1,4 +1,5 @@
-const User = require("../models/user.model.js");
+const db = require("../models");
+const User = db.user;
 const jwt = require("jsonwebtoken");
 
 // Create and Save a new Identification Step
