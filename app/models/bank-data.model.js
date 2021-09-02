@@ -17,6 +17,7 @@ module.exports = (mongoose) => {
         ref: "User",
         required: true,
       },
+      progress: Number,
     },
     { timestamps: true }
   );
