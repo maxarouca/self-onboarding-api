@@ -120,7 +120,7 @@ exports.findAllSteps = async (req, res) => {
 };
 
 // Retrieve all Step identification from the database.
-exports.findAll = (req, res) => {
+exports.findById = (req, res) => {
   const id = req.decoded.id;
 
   steps[req.step]

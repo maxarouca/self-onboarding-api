@@ -19,13 +19,13 @@ module.exports = (app) => {
   router.post("/beneficiares", register.create);
 
   // Retrieve all Steps identification
-  router.get("/identification", register.findAll);
-  router.get("/address-registration", register.findAll);
-  router.get("/company-data", register.findAll);
-  router.get("/personal-data", register.findAll);
-  router.get("/representatives", register.findAll);
-  router.get("/bank-data", register.findAll);
-  router.get("/beneficiares", register.findAll);
+  router.get("/identification", register.findById);
+  router.get("/address-registration", register.findById);
+  router.get("/company-data", register.findById);
+  router.get("/personal-data", register.findById);
+  router.get("/representatives", register.findById);
+  router.get("/bank-data", register.findById);
+  router.get("/beneficiares", register.findById);
 
   // Retrieve a single Step identification with id
   router.get("/identification/:id", register.findOne);
