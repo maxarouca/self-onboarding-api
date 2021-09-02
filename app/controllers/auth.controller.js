@@ -42,6 +42,7 @@ exports.createUser = (req, res) => {
       newUser
         .save(newUser)
         .then((data) => {
+          delete data.password;
           res.send(data);
         })
         .catch((err) => {
