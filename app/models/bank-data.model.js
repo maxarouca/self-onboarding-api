@@ -3,11 +3,11 @@ module.exports = (mongoose) => {
     {
       accounts: [
         {
-          country: String,
-          bankName: String,
+          // country: String,
+          // bankName: String,
           currency: String,
           iban: String,
-          swift: String,
+          // swift: String,
           nombreTitula: String,
           countryTitula: String,
         },
