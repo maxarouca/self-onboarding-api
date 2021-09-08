@@ -6,7 +6,10 @@ module.exports = (mongoose) => {
       suburb: String,
       population: String,
       state: String,
-      code: String,
+      code: {
+        type: String,
+        default: "52",
+      },
       phone: String,
       segment: String,
       userId: {

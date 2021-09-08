@@ -10,13 +10,13 @@ module.exports = (app) => {
   router.get("/", register.findAllSteps);
 
   // Create a new Step
-  router.post("/identification", register.create);
-  router.post("/address-registration", register.create);
-  router.post("/company-data", register.create);
-  router.post("/personal-data", register.create);
-  router.post("/representatives", register.create);
-  router.post("/bank-data", register.create);
-  router.post("/beneficiares", register.create);
+  router.post("/identification", register.createOrUpdate);
+  router.post("/address-registration", register.createOrUpdate);
+  router.post("/company-data", register.createOrUpdate);
+  router.post("/personal-data", register.createOrUpdate);
+  router.post("/representatives", register.createOrUpdate);
+  router.post("/bank-data", register.createOrUpdate);
+  router.post("/beneficiares", register.createOrUpdate);
 
   // Retrieve all Steps identification
   router.get("/identification", register.findById);

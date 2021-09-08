@@ -4,16 +4,18 @@ module.exports = (mongoose) => {
       companyRole: String,
       personalName: String,
       birthDate: String,
-      code: String,
+      code: {
+        type: String,
+        default: "52",
+      },
       phone: String,
       nationality: String,
-      country: String,
-      files: [
-        {
-          documentType: String,
-          documentFile: String,
-        },
-      ],
+      country: {
+        type: String,
+        default: "MEX",
+      },
+      documentType: String,
+      file: String,
       userId: {
         type: mongoose.Types.ObjectId,
         ref: "User",

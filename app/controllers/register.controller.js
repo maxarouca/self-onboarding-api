@@ -14,8 +14,10 @@ const steps = {
 };
 
 // Create and Save a new Identification Step
-exports.create = (req, res) => {
+exports.createOrUpdate = async (req, res) => {
   const id = req.decoded.id;
+
+  console.log(id, req.body);
 
   // Validate request
   if (!req.body) {
@@ -23,12 +25,28 @@ exports.create = (req, res) => {
     return;
   }
 
-  console.log(req.body);
+  const userStep = await steps[req.step].find({ userId: id }).catch((err) => {
+    res.status(500).send({ message: "Error retrieving data with id=" + id });
+  });
+
+  console.log("############ userstep", userStep);
+
+  if (userStep.length > 0) {
+    const updated = await steps[req.step].findOneAndUpdate(
+      { userId: id },
+      req.body,
+      { new: true }
+    );
+
+    console.log("============ UPDATED", updated);
+    return res.send(updated);
+  }
 
   const stepData = new steps[req.step]({
     ...req.body,
     userId: id,
   });
+  console.log("============ CREATED", stepData);
 
   // Save Step in the database
   stepData
@@ -128,6 +146,8 @@ exports.findById = (req, res) => {
   steps[req.step]
     .findOne({ userId: id })
     .then((data) => {
+      console.log("============ GET", data);
+
       res.send(data);
     })
     .catch((err) => {

@@ -4,7 +4,10 @@ module.exports = (mongoose) => {
       name: String,
       birthDate: String,
       nationality: String,
-      country: String,
+      country: {
+        type: String,
+        default: "MEX",
+      },
       customerNumber: String,
       rfc: String,
       percentage: Number,
