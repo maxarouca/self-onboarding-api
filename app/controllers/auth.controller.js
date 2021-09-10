@@ -66,7 +66,7 @@ exports.login = (req, res) => {
       }
 
       if (!user) {
-        return res.json({
+        return res.status(403).json({
           success: false,
           message: "User not found",
         });
