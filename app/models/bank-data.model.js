@@ -5,11 +5,17 @@ module.exports = (mongoose) => {
         {
           // country: String,
           // bankName: String,
-          currency: String,
+          currency: {
+            type: String,
+            default: "MXN",
+          },
           iban: String,
           // swift: String,
           nombreTitula: String,
-          countryTitula: String,
+          countryTitula: {
+            type: String,
+            default: "MEX",
+          },
           default: Boolean,
         },
       ],
