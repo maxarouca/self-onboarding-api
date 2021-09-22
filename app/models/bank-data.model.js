@@ -10,6 +10,7 @@ module.exports = (mongoose) => {
           // swift: String,
           nombreTitula: String,
           countryTitula: String,
+          default: Boolean,
         },
       ],
       userId: {
