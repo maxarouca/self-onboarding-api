@@ -73,7 +73,7 @@ exports.login = (req, res) => {
       }
 
       if (user.password !== req.body.password) {
-        return res.json({
+        return res.status(401).json({
           success: false,
           message: "Incorrect password",
         });
