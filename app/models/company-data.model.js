@@ -3,6 +3,7 @@ module.exports = (mongoose) => {
     {
       companyType: String,
       businessName: String,
+      companyName: String,
       cif: String,
       web: String,
       file: String,
